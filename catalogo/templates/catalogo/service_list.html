@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Lista de servicios</h1>
+  {% if service_list %}
+  <ul>
+    {% for service in service_list %}
+      <li>
+        <a href="{{ service.get_absolute_url }}">{{ service.title }}</a> ({{service.subcategory}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>No hay servicios publicados.</p>
+  {% endif %}       
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Plataforma de Servicios</h1>
+  <p>Publica ofertas y solicitudes de servicios, es gratis!</p>
+  <h2>Contenido</h2>
+  <p>Registros de la plataforma</p>
+  <ul>
+    <li><strong>Publicaciones:</strong> {{ num_services }}</li>
+    <li><strong>Servicios disponibles:</strong> {{ num_services_available }}</li>
+    <li><strong>Categorías:</strong> {{ num_subcategory }}</li>
+  </ul>
+{% endblock %}
