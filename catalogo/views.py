@@ -5,19 +5,16 @@ from django.views import generic
 def index(request):
     """View function for home page of site."""
 
-    # Generate counts of some of the main objects
     num_services = Service.objects.all().count()
     
-    # Available services (status = 'a')
-    num_services_available = Service.objects.filter(status__exact='a').count()
+    num_services_available = Service.objects.all()
     
-    # The 'all()' is implied by default.    
-    num_subcategory = SubCategory.objects.count()
+    list_subcategory = SubCategory.objects.all()
     
     context = {
         'num_services': num_services,
         'num_services_available': num_services_available,
-        'num_subcategory': num_subcategory,
+        'list_subcategory': list_subcategory,
     }
 
     # Render the HTML template index.html with the data in the context variable

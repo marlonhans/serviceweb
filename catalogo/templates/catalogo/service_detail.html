@@ -6,7 +6,7 @@
   <p><strong>Categoría:</strong> <a href="">{{ service.subcategory }}</a></p> <!-- subcategory detail link not yet defined -->
   <p><strong>Descripción:</strong> {{ service.description }}</p>
   <p><strong>Precio:</strong> {{ service.price }}</p>  
-  <p><strong>Acuerdo:</strong> {{ service.price_type }}</p>  
-  <p><strong>Estado:</strong> {{ service.status }}</p>  
+  <p><strong>Acuerdo:</strong> {{ service.get_price_type_display }}</p>  
+  <p><strong>Estado:</strong> {{ service.get_status_display }}</p>  
 
-{% endblock %}
+{% endblock %}      

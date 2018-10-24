@@ -2,12 +2,30 @@
 
 {% block content %}
   <h1>Plataforma de Servicios</h1>
-  <p>Publica ofertas y solicitudes de servicios, es gratis!</p>
-  <h2>Contenido</h2>
-  <p>Registros de la plataforma</p>
+  <p>Publica ofertas y solicitudes de servicios!</p>
+  <h2>Categorías</h2>
+    {% if list_subcategory %}
+   <ul>   
+    {% for subcat in list_subcategory %}
+    <li><strong><a href="">{{ subcat }}</a></strong>, {{subcat.category}}</li>
+    
+    {% endfor %}
+   </ul>
+    {% else %}
+    <p>No se puede mostrar.</p>
+    {% endif %}  
+  
+ <p class="text-muted">Hay <strong>{{ num_services }}</strong> publicaciones disponibles</p>
+  <hr>
+    {% if num_services_available %}
   <ul>
-    <li><strong>Publicaciones:</strong> {{ num_services }}</li>
-    <li><strong>Servicios disponibles:</strong> {{ num_services_available }}</li>
-    <li><strong>Categorías:</strong> {{ num_subcategory }}</li>
+    {% for service in num_services_available %}
+      <li>
+        <a href="{{ service.get_absolute_url }}">{{ service.title }}</a> ({{service.subcategory}})
+      </li>
+    {% endfor %}
   </ul>
+  {% else %}
+    <p>No hay servicios publicados.</p>
+  {% endif %}   
 {% endblock %}
